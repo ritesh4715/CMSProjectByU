@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace CmsShoppingCart.Areas.Admin
+namespace CmsShoppingCart.Areas.Dashboard
 {
     public class AdminAreaRegistration : AreaRegistration 
     {
