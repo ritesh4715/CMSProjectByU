@@ -177,5 +177,27 @@ namespace CmsShoppingCart.Areas.Dashboard.Controllers
             //Redirect
             return RedirectToAction("Index");
         }
+        public ActionResult ReorderPages(int[] id)
+        {
+            using (Db db = new Db())
+            {
+                //set initial count
+                int count = 0;
+
+                //Declare PageDTO
+                PageDTO dto;
+
+                //Set sorting for each pages
+                foreach (var item in id)
+                {
+                    dto = db.Pages.Find(item);
+                    dto.Sorting = count;
+
+                    db.SaveChanges();
+                    count++;
+                }
+            }
+            return View();
+        }
     }
 }
